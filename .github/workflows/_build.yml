@@ -1,0 +1,14 @@
+name: _build
+on:
+  workflow_call
+    inputs-hoge:
+      required: true
+      type: string
+      default: ''
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo hoge
+        run echo ${{inputs.inputs-hoge}}

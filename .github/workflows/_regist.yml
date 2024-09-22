@@ -1,0 +1,14 @@
+name: _regist
+on:
+  workflow_call
+    inputs-hoge:
+      required: true
+      type: string
+      default: ''
+
+jobs:
+  regist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo hoge
+        run echo ${{inputs.inputs-hoge}}

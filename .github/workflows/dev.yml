@@ -1,0 +1,21 @@
+name: dev
+on: push
+  branch:
+    - master
+jobs:
+  test:
+    uses: ./.github/workflows/_test.yml
+    with:
+      inputs-hoge: "test-hoge"
+
+  build:
+    needs: test
+    uses: ./.github/workflows/_build.yml
+    with:
+      inputs-hoge: "build-hoge"
+
+  regist:
+    needs: test
+    uses: ./.github/workflows/_regist.yml
+    with:
+      inputs-hoge: "regist-hoge"
