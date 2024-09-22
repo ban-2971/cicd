@@ -7,16 +7,16 @@ jobs:
   test:
     uses: ./.github/workflows/_test.yml
     with:
-      inputs-hoge: "test-hoge"
+      inputs-hoge: 'test-hoge'
 
   build:
     needs: test
     uses: ./.github/workflows/_build.yml
     with:
-      inputs-hoge: "build-hoge"
+      inputs-hoge: 'build-hoge'
 
   regist:
-    needs: test
+    needs: build
     uses: ./.github/workflows/_regist.yml
     with:
-      inputs-hoge: "regist-hoge"
+      inputs-hoge: 'regist-hoge'
