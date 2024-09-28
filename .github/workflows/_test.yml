@@ -2,14 +2,15 @@ name: _test
 on:
   workflow_call:
     inputs:
-      inputs-hoge:
+      target:
         required: true
         type: string
-        default: ''
 
 jobs:
-  regist:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: echo hoge
-        run: echo ${{inputs.inputs-hoge}}
+      - name: echo target
+        run: echo ${{inputs.target}}
+      - name: echo branch
+        run: echo ${{ github.ref }}

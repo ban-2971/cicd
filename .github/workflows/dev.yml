@@ -1,23 +1,17 @@
 name: dev
 on:
-  # workflow_dispatch:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+    inputs:
+      target:
+        type: choice
+        description: Deploy target
+        required: true
+        options:
+          - pre-dev
+          - dev
+          - all
 jobs:
   test:
     uses: ./.github/workflows/_test.yml
     with:
-      inputs-hoge: 'test-hoge'
-
-  build:
-    needs: test
-    uses: ./.github/workflows/_build.yml
-    with:
-      inputs-hoge: 'build-hoge'
-
-  regist:
-    needs: build
-    uses: ./.github/workflows/_regist.yml
-    with:
-      inputs-hoge: 'regist-hoge'
+      target: ${{ github.event.inputs.target }}"
