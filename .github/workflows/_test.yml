@@ -10,7 +10,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: echo target
         run: echo ${{inputs.target}}
       - name: echo branch
         run: echo ${{ github.ref }}
+      - name: echo branch
+        run: echo $GITHUB_SHA

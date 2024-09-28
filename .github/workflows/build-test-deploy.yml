@@ -2,7 +2,7 @@ name: hello-world
 on:
   push:
     branches:
-      - cicd
+      - cicdssss
 jobs:
   build:
     runs-on: ubuntu-latest
